@@ -1,29 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { animiateObject } from './animate-object';
-
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { animiateObject } from '../home/animate-object';
+import { UserService } from '../services/user-service/user.service';
+import { HttpResponse } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { UserData } from '../model/UserData';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
+  username!: string;
+  password!: string;
+  @Output() dataEvent = new EventEmitter<Boolean>();
 
-  ngOnInit(): void {
-    animiateObject(this.trashHash);
+  toRegister() {
+    const data = true;
+    this.dataEvent.emit(data);
   }
 
-  constructor() {
-    this.trashHash["spaceman"] = 100;
-    this.trashHash["bottle"] = 5;
-    this.trashHash["can"] = 8;
-    this.trashHash["chips"] = 2;
-    this.trashHash["newspaper"] = 100;
-    this.trashHash["satellite"] = 200;
-    this.trashHash["trash"] = 75;
-    this.trashHash["water-bottle"] = 5;
+  login(username: string, password: string): void {
+    this.userService
+      .loginRequest(username, password)
+      .subscribe((response) => {
+        this.userService.jwt = response.headers.get('Token') || '';
+        this.userService.username = username;
+      });
   }
 
-  trashHash: Record<string, number> = {};
+  constructor(private userService: UserService) {
+  }
 
 }

@@ -1,1 +1,38 @@
-<p>register works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Register</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form  class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="Enter your username"
+
+          name="username"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Enter your password"
+
+          name="password"
+          required
+        />
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Login</button>
+    </form>
+    <div class="reset">
+      <a href="">Forgot Username or Password?</a> <br /><br />
+      <a (click)="toLogin()" style="cursor: pointer;">Already Signed Up? Login Here</a>
+    </div>
+    <div></div>
+  </mat-card-content>
+</mat-card>

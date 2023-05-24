@@ -22,6 +22,7 @@ public class UserServiceApplication {
 						.allowedOrigins("http://localhost:4200")
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")
+						.exposedHeaders("Token")
 						.allowCredentials(true)
 						.maxAge(3600);
 			}

@@ -10,6 +10,8 @@ public class PasswordUtil {
         // Hash the password
         String hashedPassword = BCrypt.hashpw(password, salt);
 
+        System.out.println(hashedPassword);
+
         return hashedPassword;
     }
 

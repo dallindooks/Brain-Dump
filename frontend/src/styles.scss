@@ -13,7 +13,8 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $frontend-primary: mat.define-palette(mat.$light-blue-palette);
-$frontend-accent: mat.define-palette(mat.$brown-palette);
+$frontend-accent: mat.define-palette(mat.$yellow-palette);
+$frontend-ugly: mat.define-palette(mat.$brown-palette);
 
 // The warn palette is optional (defaults to red).
 $frontend-warn: mat.define-palette(mat.$red-palette);
@@ -25,6 +26,7 @@ $frontend-theme: mat.define-light-theme((
   color: (
     primary: $frontend-primary,
     accent: $frontend-accent,
+    ugly: $frontend-ugly,
     warn: $frontend-warn,
     boring: $frontend-boring
   )
@@ -49,6 +51,58 @@ body {
 
 :root{
   --color-primary: #0277BD;
-  --color-accent: #4E342E;
+  --color-accent: #FFFF00;
+  --color-brown: #795548;
   --color-boring: #424242;
+}
+
+.primary{
+  color: var(--color-primary);
+}
+.accent{
+  color: var(--color-accent);
+}
+.boring{
+  color: var(--color-boring);
+}
+
+button {
+  font-size: large;
+  font-weight: bold;
+}
+
+button:hover {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+mat-card{
+  opacity: .85;
+  width: 600px;
+}
+
+mat-card-title {
+  margin: 0;
+  width: 100%;
+}
+
+mat-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.reset {
+  text-align: center;
 }
