@@ -1,0 +1,24 @@
+<app-navbar (selectedBrainStorm)="setSelectedBrainStorm($event)"></app-navbar>
+<div class="header">
+  <div *ngIf="selectedBrainStorm != null; else selectOrCreate">
+    <div class="header-container" *ngIf="selectedBrainStorm.description != ''">
+      <p>Description: {{selectedBrainStorm.description }}</p>
+    </div>
+</div>
+<ng-template #selectOrCreate>
+  <h2>Select Or Create a new BrainStorm </h2>
+</ng-template>
+</div>
+<p *ngIf="selectedBrainStorm != null">{{ selectedBrainStorm.title }}</p>
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="flex flex-row idea-container">
+      <div><h2>Ideas</h2></div>
+      <div class="add-idea flex flex-row">
+        Add new
+        <img (click)="openDialog('500ms', '500ms')" src="/assets/images/add.png" />
+      </div>
+    </div>
+  </div>
+  <div class="grid-item">Details</div>
+</div>

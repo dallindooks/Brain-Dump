@@ -4,16 +4,46 @@
       <h2>Register</h2>
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-    <form  class="form">
+  <mat-card-content [@fadeIn]>
+    <form class="form">
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input
           matInput
           placeholder="Enter your username"
-
           name="username"
           required
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Enter your email"
+          name="email"
+          required
+          [(ngModel)]="email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter your First Name"
+          name="first-name"
+          required
+          [(ngModel)]="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter your Last Name"
+          name="last-name"
+          required
+          [(ngModel)]="lastName"
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
@@ -22,16 +52,29 @@
           matInput
           type="password"
           placeholder="Enter your password"
-
           name="password"
+          required
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label> Confirm Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm your password"
+          name="confirm-password"
           required
         />
       </mat-form-field>
-      <button mat-raised-button color="accent" type="submit">Login</button>
+
+      <button (click)="register()" mat-raised-button color="accent" type="submit">Submit</button>
     </form>
     <div class="reset">
       <a href="">Forgot Username or Password?</a> <br /><br />
-      <a (click)="toLogin()" style="cursor: pointer;">Already Signed Up? Login Here</a>
+      <a (click)="toLogin()" style="cursor: pointer"
+        >Already Signed Up? Login Here</a
+      >
     </div>
     <div></div>
   </mat-card-content>

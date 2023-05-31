@@ -96,10 +96,8 @@ public class UserController {
     }
 
     @PostMapping("/login/{username}")
-    public ResponseEntity<User> login(@PathVariable String username, @RequestBody String password){
+    public ResponseEntity<?> login(@PathVariable String username, @RequestBody String password){
         User user = userService.findUserByUsername(username);
-        System.out.println(user.getPassword());
-        System.out.println(password);
         if (PasswordUtil.verifyPassword(password, user.getPassword())){
             String jwt = tokenUtil.getNewToken(user.getUsername());
             HttpHeaders headers = new HttpHeaders();
@@ -109,7 +107,7 @@ public class UserController {
             return new ResponseEntity<User>(user, headers, HttpStatus.OK);
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid User Credentials");
         
     }
 

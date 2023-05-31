@@ -4,6 +4,7 @@ import { Observable, mergeMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { UserData } from '../../model/UserData';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,6 @@ export class UserService {
 
   public get role(): String {
     return this._role;
-    ('');
   }
   public set role(value: String) {
     this._role = value;
@@ -35,12 +35,9 @@ export class UserService {
     this._username = value;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  loginRequest(
-    username: string,
-    password: string
-  ): Observable<HttpResponse<UserData>> {
+  loginRequest(username: string, password: string): Observable<HttpResponse<UserData>> {
     return this.http.post<UserData>(
       environment.baseApiUrlUser + 'login/' + username,
       password,
@@ -49,5 +46,20 @@ export class UserService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       }
     );
+  }
+
+  createUser(user: UserData): Observable<HttpResponse<UserData>> {
+    return this.http.post<UserData>(
+      environment.baseApiUrlUser + 'add',
+      user,
+      {
+        observe: 'response',
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }
+    );
+  }
+
+  toBrainStorm(): void {
+    this.router.navigateByUrl("/brain-storm");
   }
 }

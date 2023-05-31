@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.trashHash['satellite'] = 200;
     this.trashHash['trash'] = 75;
     this.trashHash['water-bottle'] = 5;
+    this.trashHash['wheel'] = 50;
   }
 
   trashHash: Record<string, number> = {};

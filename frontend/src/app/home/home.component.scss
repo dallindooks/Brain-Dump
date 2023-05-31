@@ -26,13 +26,13 @@
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-image: url("../../../images/starry-background.png");
+  background-image: url("/assets/images/starry-background.png");
   background-size: cover;
   // background-color: black;
 }
 
 #spaceman{
-  background-image: url("../../../images/spaceman.png");
+  background-image: url("/assets/images/spaceman.png");
   position: absolute;
   height: 200px;
   width: 200px;
@@ -42,7 +42,7 @@
 }
 
 #bottle{
-  background-image: url("../../../images/bottle.png");
+  background-image: url("/assets/images/bottle.png");
   position: absolute;
   height: 75px;
   width: 75px;
@@ -52,7 +52,7 @@
 }
 
 #can{
-  background-image: url("../../../images/can.png");
+  background-image: url("/assets/images/can.png");
   position: absolute;
   height: 75px;
   width: 75px;
@@ -62,7 +62,7 @@
 }
 
 #chips{
-  background-image: url("../../../images/chips.png");
+  background-image: url("/assets/images/chips.png");
   position: absolute;
   height: 75px;
   width: 75px;
@@ -72,7 +72,7 @@
 }
 
 #newspaper{
-  background-image: url("../../../images/newspaper.png");
+  background-image: url("/assets/images/newspaper.png");
   position: absolute;
   height: 100px;
   width: 100px;
@@ -82,7 +82,7 @@
 }
 
 #satellite{
-  background-image: url("../../../images/satellite.png");
+  background-image: url("/assets/images/satellite.png");
   position: absolute;
   height: 400px;
   width: 400px;
@@ -92,7 +92,7 @@
 }
 
 #trash{
-  background-image: url("../../../images/trash.png");
+  background-image: url("/assets/images/trash.png");
   position: absolute;
   height: 200px;
   width: 200px;
@@ -102,7 +102,17 @@
 }
 
 #water-bottle{
-  background-image: url("../../../images/water-bottle.png");
+  background-image: url("/assets/images/water-bottle.png");
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#wheel{
+  background-image: url("/assets/images/wheel.png");
   position: absolute;
   height: 100px;
   width: 100px;

@@ -1,0 +1,46 @@
+<div class="flex flex-column">
+  <div class="add-idea-container">
+    <h3>{{ title }}</h3>
+  </div>
+  <!-- form for idea creation -->
+  <div *ngIf="formObject == 'idea'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Idea Title"
+          name="title"
+          required
+        />
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for brainstorm creation -->
+  <div *ngIf="formObject == 'brainStorm'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="BrainStorm Title"
+          name="title"
+          required
+          [(ngModel)]="brainStormTitle"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          placeholder="BrainStorm Description"
+          name="Description"
+          required
+          [(ngModel)]="brainStormDescription"
+        />
+      </mat-form-field>
+      <button (click)="createBrainStorm(brainStormTitle, brainStormDescription)" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

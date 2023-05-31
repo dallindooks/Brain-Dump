@@ -1,0 +1,50 @@
+nav {
+  width: 100%;
+  margin: 0;
+  background-image: url("/assets/images/starry-background.png");
+  height: 100px;
+  background-size: cover;
+  justify-content: flex-end;
+  border-radius: 0 0 100px 100px;
+  border-bottom: 15px solid white;
+}
+
+.nav-container {
+  justify-content:space-evenly;
+  align-items: center;
+  color: white;
+  width: 35%;
+}
+
+.nav-item {
+  align-items: center;
+  background-color: white;
+  color: var(--color-primary);
+  padding: 10px;
+  border-radius: 25px;
+  opacity: .85;
+  cursor: pointer;
+  transition: transform .9s;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item:hover {
+  color: var(--color-brown);
+  font-size: large;
+  transform: scale(1.1);
+}
+
+.selector{
+  width: 65%;
+  justify-content: start;
+  height: 100%;
+  align-items:end;
+  margin-top: 44px;
+  margin-left: 150px;
+}
+
+.new-select {
+  width: 125px;
+  align-items: center;
+  justify-content: space-between;
+}

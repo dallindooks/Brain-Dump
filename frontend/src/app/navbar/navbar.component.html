@@ -1,1 +1,34 @@
-<p>navbar works!</p>
+<nav class="flex flex-row">
+  <div class="selector">
+    <mat-form-field>
+      <mat-label>BrainStorm</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option>
+          <div class="flex flex-row new-select" (click)="openDialog('500ms', '500ms')">
+            <p>Create New</p>
+            <div>
+              <img src="/assets/images/add.png" height="25px" width="25px" />
+            </div>
+          </div>
+        </mat-option>
+        <mat-option
+          *ngFor="let storm of brainStormArr"
+          [value]="storm.id"
+          (click)="setSelectedBrainStorm(storm)"
+        >
+          {{ storm.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex flex-row nav-container">
+    <div class="flex flex-row nav-item">
+      <div><img src="/assets/images/briefing.png" height="25px" /></div>
+      <div>Projects</div>
+    </div>
+    <div class="flex flex-row nav-item">
+      <div><img src="/assets/images/user-icon.png" height="25px" /></div>
+      <div>{{ username }}</div>
+    </div>
+  </div>
+</nav>

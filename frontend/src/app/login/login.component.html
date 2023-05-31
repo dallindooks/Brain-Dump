@@ -4,7 +4,7 @@
       <h2>Login</h2>
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content [@fadeIn]>
     <form (ngSubmit)="login(username, password)" class="form">
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
@@ -30,6 +30,9 @@
       <button mat-raised-button color="accent" type="submit">Login</button>
     </form>
     <div class="reset">
+      <div [ngClass]="{'error' : error == true}" class="hide">
+        {{errorMessage}}
+      </div>
       <a href="">Forgot Username or Password?</a> <br /><br />
       <a (click)="toRegister()" style="cursor: pointer;">New User? Register Here</a>
     </div>

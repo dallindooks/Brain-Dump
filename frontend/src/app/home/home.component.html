@@ -7,11 +7,12 @@
   <div id="satellite"></div>
   <div id="trash"></div>
   <div id="water-bottle"></div>
+  <div id="wheel"></div>
 </div>
 <div class="container">
   <div class="title primary">
     <h1>BRAIN DUMP</h1>
-    <img src="../../../truck.png" alt="" height="100px" width="100px" style="margin-top: -15px;">
+    <img src="assets/images/truck.png" height="100px" width="100px" style="margin-top: -15px;">
   </div>
   <app-login (dataEvent)="changeComponent($event)" *ngIf="!register" ></app-login>
   <app-register (dataEvent)="changeComponent($event)" *ngIf="register"></app-register>
