@@ -22,6 +22,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
     HttpClientModule,
     MatDialogModule,
     MatSelectModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

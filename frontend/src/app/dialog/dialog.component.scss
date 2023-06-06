@@ -11,3 +11,17 @@
   flex-direction: column;
   margin: 10px;
 }
+
+.success {
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+.deleted {
+  color: var(--color-warn);
+}
+
+.created {
+  color: green;
+}

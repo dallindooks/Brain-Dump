@@ -4,7 +4,7 @@
       <mat-label>BrainStorm</mat-label>
       <mat-select [(value)]="selected">
         <mat-option>
-          <div class="flex flex-row new-select" (click)="openDialog('500ms', '500ms')">
+          <div class="flex flex-row new-select" (click)="openDialog('Add New Brain Storm', 'brainStorm')">
             <p>Create New</p>
             <div>
               <img src="/assets/images/add.png" height="25px" width="25px" />
@@ -26,8 +26,8 @@
       <div><img src="/assets/images/briefing.png" height="25px" /></div>
       <div>Projects</div>
     </div>
-    <div class="flex flex-row nav-item">
-      <div><img src="/assets/images/user-icon.png" height="25px" /></div>
+    <div class="flex flex-row nav-item" (click)="openDialog('User Profile', 'user-profile')">
+      <div><img src="/assets/images/spaceman.png" height="25px"/></div>
       <div>{{ username }}</div>
     </div>
   </div>

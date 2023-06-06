@@ -37,7 +37,10 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loginRequest(username: string, password: string): Observable<HttpResponse<UserData>> {
+  loginRequest(
+    username: string,
+    password: string
+  ): Observable<HttpResponse<UserData>> {
     return this.http.post<UserData>(
       environment.baseApiUrlUser + 'login/' + username,
       password,
@@ -49,17 +52,24 @@ export class UserService {
   }
 
   createUser(user: UserData): Observable<HttpResponse<UserData>> {
-    return this.http.post<UserData>(
-      environment.baseApiUrlUser + 'add',
-      user,
-      {
-        observe: 'response',
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      }
-    );
+    return this.http.post<UserData>(environment.baseApiUrlUser + 'add', user, {
+      observe: 'response',
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
   }
 
   toBrainStorm(): void {
-    this.router.navigateByUrl("/brain-storm");
+    this.router.navigateByUrl('/brain-storm');
+  }
+
+  editUser(user: UserData): Observable<HttpResponse<UserData>> {
+    return this.http.put<UserData>(
+      environment.baseApiUrlUser + '/update',
+      user,
+      {
+        observe: 'response',
+        headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': localStorage.getItem("token") || "" }),
+      }
+    );
   }
 }

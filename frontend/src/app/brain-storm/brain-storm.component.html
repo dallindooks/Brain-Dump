@@ -1,24 +1,62 @@
 <app-navbar (selectedBrainStorm)="setSelectedBrainStorm($event)"></app-navbar>
-<div class="header">
-  <div *ngIf="selectedBrainStorm != null; else selectOrCreate">
-    <div class="header-container" *ngIf="selectedBrainStorm.description != ''">
-      <p>Description: {{selectedBrainStorm.description }}</p>
-    </div>
-</div>
-<ng-template #selectOrCreate>
-  <h2>Select Or Create a new BrainStorm </h2>
-</ng-template>
-</div>
-<p *ngIf="selectedBrainStorm != null">{{ selectedBrainStorm.title }}</p>
-<div class="grid-container">
-  <div class="grid-item">
-    <div class="flex flex-row idea-container">
-      <div><h2>Ideas</h2></div>
-      <div class="add-idea flex flex-row">
-        Add new
-        <img (click)="openDialog('500ms', '500ms')" src="/assets/images/add.png" />
+<div class="brain-storm-container">
+  <div class="header">
+    <div *ngIf="selectedBrainStorm != null; else selectOrCreate" style="width: 100%;">
+      <div class="header-container" *ngIf="selectedBrainStorm.description != ''">
+        <p>Description: {{selectedBrainStorm.description }}</p>
+        <div>
+          <img (click)="openDialog('Edit BrainStorm', 'brainStorm-edit')" src="/assets/images/edit.png" height="20px" style="margin-inline: 5px;" class="icon-button">
+          <img (click)="openDialog('Are you sure you want to delete this Brain Storm?', 'brainStorm-delete')" src="/assets/images/bin.png" height="20px" style="margin-inline: 5px;" class="icon-button">
+        </div>
+      </div>
+  </div>
+  <ng-template #selectOrCreate>
+    <h2>Select Or Create a new BrainStorm </h2>
+  </ng-template>
+  </div>
+  <div class="grid-container">
+    <div class="column-1">
+      <div class="grid-item" *ngFor="let idea of ideaArr" [ngClass]="{'selected-idea' : idea.id == selectedIdea}" (click)="setSelectedIdea(idea)">
+        {{ idea.title }}
+      </div>
+      <div (click)="openDialog('Create Idea', 'idea-create')" class="grid-item add-idea">
+        Create New <img src="/assets/images/add.png" height="20px" style="margin-inline: 5px;"  />
       </div>
     </div>
+    <div class="column-2">
+      <div class="grid-item">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="selectedIdea">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openDialog('Add a How', 'idea-how')">
+            <span>Add How</span>
+          </button>
+          <button mat-menu-item (click)="openDialog('Add a What', 'idea-what')">
+            <span>Add What</span>
+          </button>
+          <button mat-menu-item (click)="openDialog('Add a Why', 'idea-why')">
+            <span>Add Why</span>
+          </button>
+          <button mat-menu-item (click)="openDialog('Add a When', 'idea-when')">
+            <span>Add When</span>
+          </button>
+          <button mat-menu-item (click)="openDialog('Add a Where', 'idea-where')">
+            <span>Add Where</span>
+          </button>
+          <button mat-menu-item (click)="openDialog('Add a Who', 'idea-who')">
+            <span>Add Who</span>
+          </button>
+        </mat-menu>
+      </div>
+        <div *ngFor="let item of ideaChildren | keyvalue; let i = index">
+          <div [attr.id]="'item-' + i" class="idea-children" [ngClass]="{'grid-item' : item.value}" *ngIf="item.value" (click)="openDialog(item.key, 'idea-' + item.key)">
+            {{item.key}}: {{item.value}}
+          </div>
+        </div>
+    </div>
   </div>
-  <div class="grid-item">Details</div>
 </div>
+<footer>
+  Made with <img src="/assets/images/heart.png" height="20px" style="margin-inline: 5px;"  /> by Dallin
+</footer>

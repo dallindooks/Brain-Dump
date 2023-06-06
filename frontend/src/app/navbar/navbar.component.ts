@@ -50,14 +50,14 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('selectedBrainStorm', JSON.stringify(storm));
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDialog(title: string, formObject: string): void {
     this.dialog.open(DialogComponent, {
       width: '500px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+      enterAnimationDuration: '500ms',
+      exitAnimationDuration: '500ms',
       data: {
-        title: "Add New Brain Storm",
-        formObject: "brainStorm"
+        title: title,
+        formObject: formObject
       }
     });
   }

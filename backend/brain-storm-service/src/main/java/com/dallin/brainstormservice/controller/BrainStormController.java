@@ -50,9 +50,10 @@ public class BrainStormController {
                 .body(brainStormList);
     }
     
-    @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteBrainStorm(@RequestBody BrainStorm brainStorm) {
-        brainStormService.deleteBrainStorm(brainStorm);
+    @DeleteMapping("/delete/{brainStormId}")
+    public ResponseEntity<Void> deleteBrainStorm(@PathVariable Integer brainStormId) {
+        BrainStorm deleteBrainStorm = brainStormService.findBrainStormById(brainStormId);
+        brainStormService.deleteBrainStorm(deleteBrainStorm);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

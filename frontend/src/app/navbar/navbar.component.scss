@@ -29,7 +29,8 @@ nav {
 }
 
 .nav-item:hover {
-  color: var(--color-brown);
+  color: var(--color-accent);
+  background-color: var(--color-primary);
   font-size: large;
   transform: scale(1.1);
 }

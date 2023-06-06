@@ -28,6 +28,7 @@ public class BrainStormService {
 
     public BrainStorm updateBrainStorm(BrainStorm brainStorm) {
         BrainStorm updatedBrainStorm = findBrainStormById(brainStorm.getId());
+        updatedBrainStorm = brainStorm;
         return brainStormDao.save(updatedBrainStorm);
     }
 
@@ -59,7 +60,9 @@ public class BrainStormService {
 
     public Idea updateIdea(Idea idea) {
         Idea updateIdea = ideaDAO.findById(idea.getId()).get();
+        BrainStorm updateIdeaBrainStorm = updateIdea.getBrainStorm();
         updateIdea = idea;
+        updateIdea.setBrainStorm(updateIdeaBrainStorm);
         return ideaDAO.save(updateIdea);
     }
     

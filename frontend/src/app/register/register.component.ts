@@ -17,7 +17,7 @@ import { UserData } from '../model/UserData';
 })
 export class RegisterComponent {
   @Output() dataEvent = new EventEmitter<Boolean>();
-
+  loggedInUser = new Map<string, string>();
   id!: number;
   username!: string;
   email!: string;
@@ -45,6 +45,9 @@ export class RegisterComponent {
       .subscribe((response) => {
         this.userService.jwt = response.headers.get('Token') || '';
         this.userService.username = response.body?.username || '';
+        localStorage.setItem("current-user-email", response.body?.email || "");
+        localStorage.setItem("current-user-first-name", response.body?.firstName || "");
+        localStorage.setItem("current-user-last-name", response.body?.lastName || "");
         this.userService.toBrainStorm();
       });
   }

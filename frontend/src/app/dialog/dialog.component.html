@@ -3,7 +3,7 @@
     <h3>{{ title }}</h3>
   </div>
   <!-- form for idea creation -->
-  <div *ngIf="formObject == 'idea'">
+  <div *ngIf="formObject == 'idea-create'">
     <form action="" class="form-container">
       <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
@@ -12,9 +12,10 @@
           placeholder="Idea Title"
           name="title"
           required
+          [(ngModel)]="ideaTitle"
         />
       </mat-form-field>
-      <button mat-raised-button color="accent" type="submit">Submit</button>
+      <button (click)="createIdea()" mat-raised-button color="accent" type="submit">Submit</button>
     </form>
   </div>
   <!-- form for brainstorm creation -->
@@ -41,6 +42,189 @@
         />
       </mat-form-field>
       <button (click)="createBrainStorm(brainStormTitle, brainStormDescription)" mat-raised-button color="accent" type="submit">Submit</button>
+      <div class="success created" *ngIf="created">
+        BrainStorm Succesfully created
+      </div>
+    </form>
+  </div>
+  <!-- form for deleting Brain Storm -->
+  <div *ngIf="formObject == 'brainStorm-delete'">
+    <form action="" class="form-container">
+      <button (click)="deleteBrainStorm()" mat-raised-button color="warn" type="submit">Delete</button>
+      <div class="success deleted" *ngIf="deleted">
+        BrainStorm Succesfully deleted
+      </div>
+    </form>
+  </div>
+  <!-- form for updating a brainstorm -->
+  <div *ngIf="formObject == 'brainStorm-edit'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="BrainStorm Title"
+          name="title"
+          required
+          [(ngModel)]="brainStormTitle"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          placeholder="BrainStorm Description"
+          name="Description"
+          required
+          [(ngModel)]="brainStormDescription"
+        />
+      </mat-form-field>
+      <button (click)="editBrainStorm()" mat-raised-button color="accent" type="submit">Submit</button>
+      <div class="success created" *ngIf="edited">
+        BrainStorm Succesfully edited
+      </div>
+    </form>
+  </div>
+  <!-- form for adding why -->
+  <div *ngIf="formObject == 'idea-why'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Why This Idea?"
+          name="Why"
+          required
+          [(ngModel)]="selectedIdea.why"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for adding what -->
+  <div *ngIf="formObject == 'idea-what'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="What About This Idea?"
+          name="What"
+          required
+          [(ngModel)]="selectedIdea.what"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for adding how -->
+  <div *ngIf="formObject == 'idea-how'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="How will this be done?"
+          name="How"
+          required
+          [(ngModel)]="selectedIdea.how"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for adding when -->
+  <div *ngIf="formObject == 'idea-when'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="When will this be done?"
+          name="When"
+          required
+          [(ngModel)]="selectedIdea.when_col"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for adding where -->
+  <div *ngIf="formObject == 'idea-where'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Where will this be done?"
+          name="Where"
+          required
+          [(ngModel)]="selectedIdea.where_col"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- form for adding where -->
+  <div *ngIf="formObject == 'idea-who'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Who is involved?"
+          name="Who"
+          required
+          [(ngModel)]="selectedIdea.who"
+        />
+      </mat-form-field>
+      <button (click)="editIdea()" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+  </div>
+  <!-- edit user profile -->
+  <div *ngIf="formObject == 'user-profile'">
+    <form action="" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="username"
+          name="username"
+          required
+          [(ngModel)]="currentUser.username"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="first name"
+          name="first-name"
+          required
+          [(ngModel)]="currentUser.firstName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="last name"
+          name="last-name"
+          required
+          [(ngModel)]="currentUser.lastName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="email"
+          name="email"
+          required
+          [(ngModel)]="currentUser.email"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Submit</button>
     </form>
   </div>
 </div>

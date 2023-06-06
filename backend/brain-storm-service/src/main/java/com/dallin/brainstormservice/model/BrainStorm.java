@@ -35,7 +35,7 @@ public class BrainStorm{
 
     private Integer userId;
 
-    @OneToMany(mappedBy = "brainStorm", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "brainStorm", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Idea> ideas;
 

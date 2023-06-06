@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BrainStormServiceApplication",
+            "request": "launch",
+            "mainClass": "com.dallin.brainstormservice.BrainStormServiceApplication",
+            "projectName": "brain-storm-service"
+        },
+        {
+            "type": "java",
+            "name": "UserServiceApplication",
+            "request": "launch",
+            "mainClass": "com.dallin.userservice.UserServiceApplication",
+            "projectName": "user-service"
+        },
+        {
+            "type": "java",
+            "name": "TokenServiceApplication",
+            "request": "launch",
+            "mainClass": "com.dallin.tokenservice.TokenServiceApplication",
+            "projectName": "token-service"
+        },
+        {
+            "type": "java",
+            "name": "CloudConfigServerApplication",
+            "request": "launch",
+            "mainClass": "com.dallin.cloudconfigserver.CloudConfigServerApplication",
+            "projectName": "cloud-config-server"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open dialog.component.html",
+            "file": "c:\\Personal-Projects\\Brain-Dump\\frontend\\src\\app\\dialog\\dialog.component.html"
+        }
+    ]
+}

@@ -46,7 +46,6 @@ body {
   font-family: Roboto,
   "Helvetica Neue", sans-serif;
   box-sizing: border-box;
-  overflow: hidden;
   background-image: url("/assets/images/spaceship-background.jpg");
   background-size: cover;
 }
@@ -56,6 +55,7 @@ body {
   --color-accent: #FFFF00;
   --color-brown: #795548;
   --color-boring: #424242;
+  --color-warn: #D50000;
 }
 
 .primary{

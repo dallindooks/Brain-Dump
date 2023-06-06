@@ -11,13 +11,22 @@ import { environment } from 'src/environments/environment';
 })
 export class BrainStormService {
   private _selectedBrainStorm!: BrainStorm;
+  private _selectedIdea!: Idea;
 
   public get selectedBrainStorm(): BrainStorm {
     return this._selectedBrainStorm;
   }
-  
+
   public set selectedBrainStorm(value: BrainStorm) {
     this._selectedBrainStorm = value;
+  }
+
+  public get selectedIdea(): Idea {
+    return this._selectedIdea;
+  }
+
+  public set selectedIdea(value: Idea){
+    this._selectedIdea = value;
   }
 
   constructor(private http: HttpClient) {}
@@ -57,9 +66,46 @@ export class BrainStormService {
     );
   }
 
+  editBrainStorm(brainStorm: BrainStorm): Observable<HttpResponse<BrainStorm>> {
+    return this.http.put<BrainStorm>(
+      environment.baseApiUrlBrainStorm + 'update',
+      brainStorm,
+      {
+        observe: 'response',
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }
+    );
+  }
+
+  deleteBrainStorm(brainStormId: number): Observable<any> {
+    return this.http.delete(
+      environment.baseApiUrlBrainStorm + 'delete/' + brainStormId
+    );
+  }
+
   createIdea(idea: any, brainStormId: number): Observable<HttpResponse<Idea>> {
     return this.http.post<Idea>(
-      environment.baseApiUrlBrainStorm + 'idea/add/' + brainStormId,
+      environment.baseApiUrlBrainStorm + 'idea/add-idea/' + brainStormId,
+      idea,
+      {
+        observe: 'response',
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }
+    );
+  }
+
+  getSelectedBrainStormFromLocalStorage(): BrainStorm | null {
+    const storedBrainStorm = localStorage.getItem('selectedBrainStorm');
+    let parsedBrainStorm: BrainStorm | null = null;
+    if (storedBrainStorm) {
+      parsedBrainStorm = JSON.parse(storedBrainStorm) as BrainStorm;
+    }
+    return parsedBrainStorm;
+  }
+
+  editIdea(idea: Idea): Observable<HttpResponse<Idea>> {
+    return this.http.put<Idea>(
+      environment.baseApiUrlBrainStorm + 'idea/update',
       idea,
       {
         observe: 'response',

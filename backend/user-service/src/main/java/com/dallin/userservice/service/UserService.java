@@ -30,7 +30,10 @@ public class UserService {
 
     public User updateUser(User user) {
         User updatedUser = findUserById(user.getId());
-        updatedUser = user;
+        updatedUser.setEmail(user.getEmail());
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setLastName(user.getLastName());
+        updatedUser.setUsername(user.getUsername());
         return userDao.save(updatedUser);
     }
 

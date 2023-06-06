@@ -1,14 +1,46 @@
+.brain-storm-container {
+  background-color: rgba(66, 66, 66, .9);
+  width: auto;
+  margin: 50px;
+  border-radius: 25px;
+  padding-bottom: 25px;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: 1.2fr repeat(1, 5fr);
+  grid-template-columns: minmax(0, 1.2fr) repeat(1, minmax(0, 2fr));
   grid-gap: 10px;
   margin-inline: 20px;
+  height: 100%;
+  border:var(--color-brown) solid 2px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(97, 97, 97, 0.9);
+  word-break: break-all;
+}
+
+.column-1 {
+
+}
+
+.column-2 {
+
 }
 
 .grid-item {
   padding: 10px;
-  background-color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .5s;
+}
+
+.add-idea {
+  background-color: rgba(146, 146, 146, 0.9);
+  cursor: pointer;
 }
 
 .idea-container {
@@ -38,25 +70,55 @@
 
 .header {
   color: white;
-  width: 100%;
+  width: 97%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  text-decoration:underline;
+  justify-content: start;
+  margin-inline: 25px;
 }
 
 .header-container {
   text-align: center;
-  background-color: var(--color-boring);
-  opacity: .85;
-  width: fit-content;
-  padding: 10px;
-  padding-inline: 20px;
+  width: 100%;
   margin-top: 20px;
   border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.header-container p {
-  text-decoration: none !important;
+.header-container input {
+  height: 20px;
+  border: none;
+  background-color: var(--color-boring);
+  color: white;
 }
+
+footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:100px 100px 0 0;
+  border-top: 10px solid white;
+}
+
+.icon-button {
+  cursor: pointer;
+}
+
+.selected-idea {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  transform: scale(1.025);
+}
+
+
+
 
