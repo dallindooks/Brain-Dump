@@ -23,6 +23,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
     NavbarComponent,
     BrainStormComponent,
     DialogComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

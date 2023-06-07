@@ -5,7 +5,7 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content [@fadeIn]>
-    <form class="form">
+    <form class="form" >
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input
@@ -65,12 +65,14 @@
           placeholder="Confirm your password"
           name="confirm-password"
           required
+          [(ngModel)]="confirmPassword"
         />
       </mat-form-field>
 
       <button (click)="register()" mat-raised-button color="accent" type="submit">Submit</button>
     </form>
     <div class="reset">
+      <p style="color: red;" *ngIf="error">You messed it up buddy</p>
       <a href="">Forgot Username or Password?</a> <br /><br />
       <a (click)="toLogin()" style="cursor: pointer"
         >Already Signed Up? Login Here</a

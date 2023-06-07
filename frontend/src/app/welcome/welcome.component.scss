@@ -1,0 +1,27 @@
+.welcome-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-image: none;
+  background-color: var(--color-boring);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-title {
+  color: var(--color-primary);
+}
+
+.start-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: white;
+  padding-inline: 125px;
+  padding-bottom: 125px;
+  line-height: 2;
+  border-radius: 250px;
+  text-align: center;
+}

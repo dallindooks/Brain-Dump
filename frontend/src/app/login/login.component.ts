@@ -5,6 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UserData } from '../model/UserData';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,8 @@ export class LoginComponent{
   errorMessage!: string;
   @Output() dataEvent = new EventEmitter<Boolean>();
 
+  constructor(private userService: UserService, private router: Router) {}
+
   toRegister() {
     const data = true;
     this.dataEvent.emit(data);
@@ -40,17 +43,14 @@ export class LoginComponent{
         localStorage.setItem("current-user-email", response.body?.email || "");
         localStorage.setItem("current-user-first-name", response.body?.firstName || "");
         localStorage.setItem("current-user-last-name", response.body?.lastName || "");
-        this.userService.toBrainStorm();
         localStorage.setItem("token", response.headers.get('Token') || "");
         localStorage.setItem("username", username || "");
         localStorage.setItem("userId", response.body?.id.toString() || "");
-      },(err) => {
+        this.router.navigateByUrl('/brain-storm');
+      },() => {
         this.error = true;
         this.errorMessage = "Invalid User Credentials";
       });
-  }
-
-  constructor(private userService: UserService) {
   }
 
 }

@@ -3,7 +3,10 @@
   <div class="header">
     <div *ngIf="selectedBrainStorm != null; else selectOrCreate" style="width: 100%;">
       <div class="header-container" *ngIf="selectedBrainStorm.description != ''">
-        <p>Description: {{selectedBrainStorm.description }}</p>
+        <div class="flex flex-row" style="align-items: baseline;">
+          <h3 style="margin-right: 5px;">BrainStorm Description: </h3>
+          <p>{{selectedBrainStorm.description }}</p>
+        </div>
         <div>
           <img (click)="openDialog('Edit BrainStorm', 'brainStorm-edit')" src="/assets/images/edit.png" height="20px" style="margin-inline: 5px;" class="icon-button">
           <img (click)="openDialog('Are you sure you want to delete this Brain Storm?', 'brainStorm-delete')" src="/assets/images/bin.png" height="20px" style="margin-inline: 5px;" class="icon-button">
@@ -61,7 +64,6 @@
             {{item.key}}: {{item.value}}
           </div>
         </div>
-        <div *ngIf="!ideaChildren.size">cool</div>
     </div>
   </div>
 </div>

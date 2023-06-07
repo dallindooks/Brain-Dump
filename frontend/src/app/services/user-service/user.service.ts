@@ -10,28 +10,28 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserService {
-  private _username!: String;
-  private _jwt!: String;
-  private _role!: String;
+  private _username!: string;
+  private _jwt!: string;
+  private _role!: string;
 
-  public get role(): String {
+  public get role(): string {
     return this._role;
   }
-  public set role(value: String) {
+  public set role(value: string) {
     this._role = value;
   }
 
-  public get jwt(): String {
+  public get jwt(): string {
     return this._jwt;
   }
-  public set jwt(value: String) {
+  public set jwt(value: string) {
     this._jwt = value;
   }
 
-  public get username(): String {
+  public get username(): string {
     return this._username;
   }
-  public set username(value: String) {
+  public set username(value: string) {
     this._username = value;
   }
 
@@ -56,10 +56,6 @@ export class UserService {
       observe: 'response',
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     });
-  }
-
-  toBrainStorm(): void {
-    this.router.navigateByUrl('/brain-storm');
   }
 
   editUser(user: UserData): Observable<HttpResponse<UserData>> {
