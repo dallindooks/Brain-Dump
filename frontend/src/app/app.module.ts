@@ -21,7 +21,6 @@ import { BrainStormComponent } from './brain-storm/brain-storm.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatSelectModule } from '@angular/material/select';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 

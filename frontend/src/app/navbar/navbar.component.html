@@ -26,9 +26,13 @@
       <div><img src="/assets/images/briefing.png" height="25px" /></div>
       <div>Projects</div>
     </div>
-    <div class="flex flex-row nav-item" (click)="openDialog('User Profile', 'user-profile')">
+    <div class="flex flex-row nav-item" [mat-menu-trigger-for]="menu">
       <div><img src="/assets/images/spaceman.png" height="25px"/></div>
       <div>{{ username }}</div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDialog('User Profile', 'user-profile')">Edit Profile</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
     </div>
   </div>
 </nav>

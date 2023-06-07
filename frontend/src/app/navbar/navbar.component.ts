@@ -3,6 +3,8 @@ import { BrainStorm } from '../model/BrainStorm';
 import { BrainStormService } from '../services/brain-storm-service/brain-storm.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,7 @@ export class NavbarComponent implements OnInit {
   brainStormArr: BrainStorm[] = [];
   selected!: number;
 
-  constructor (private brainStormService: BrainStormService, public dialog: MatDialog) {
+  constructor (private brainStormService: BrainStormService, public dialog: MatDialog, private router: Router) {
 
   }
 
@@ -39,7 +41,6 @@ export class NavbarComponent implements OnInit {
   getBrainStorms(userId: number) : void{
     this.brainStormService.getAllBrainStorms(userId).subscribe((res) => {
       res.body?.map((storm) => {
-        console.log(storm)
         this.brainStormArr.push(storm);
       })
     });
@@ -60,6 +61,11 @@ export class NavbarComponent implements OnInit {
         formObject: formObject
       }
     });
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl("/home");
   }
 
 }

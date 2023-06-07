@@ -64,7 +64,7 @@ export class UserService {
 
   editUser(user: UserData): Observable<HttpResponse<UserData>> {
     return this.http.put<UserData>(
-      environment.baseApiUrlUser + '/update',
+      environment.baseApiUrlUser + 'update',
       user,
       {
         observe: 'response',

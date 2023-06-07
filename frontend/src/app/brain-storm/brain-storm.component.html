@@ -16,6 +16,10 @@
   </div>
   <div class="grid-container">
     <div class="column-1">
+      <div class="flex flex-row grid-item" style="cursor: default;">
+        <img src="/assets/images/idea.png" height="20px" style="margin-right: 5px;"/>
+        <h3>Ideas </h3>
+      </div>
       <div class="grid-item" *ngFor="let idea of ideaArr" [ngClass]="{'selected-idea' : idea.id == selectedIdea}" (click)="setSelectedIdea(idea)">
         {{ idea.title }}
       </div>
@@ -24,10 +28,13 @@
       </div>
     </div>
     <div class="column-2">
-      <div class="grid-item">
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="selectedIdea">
-          <mat-icon>more_vert</mat-icon>
-        </button>
+      <div class="grid-item" style="cursor: default;">
+        <div class="flex flex-row">
+          <h3>Idea Details</h3>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="selectedIdea">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="openDialog('Add a How', 'idea-how')">
             <span>Add How</span>
@@ -54,6 +61,7 @@
             {{item.key}}: {{item.value}}
           </div>
         </div>
+        <div *ngIf="!ideaChildren.size">cool</div>
     </div>
   </div>
 </div>

@@ -48,7 +48,8 @@ public class UserController {
 
     @PutMapping("/update")
     public ResponseEntity<User> updateUser(@RequestBody User user, @RequestHeader String token) throws UserNotAuthenticatedException {
-        if (!tokenUtil.validateToken(token, user.getUsername())) {
+        User userToUpdate = userService.findUserById(user.getId());
+        if (!tokenUtil.validateToken(token, userToUpdate.getUsername())) {
             throw new UserNotAuthenticatedException("Authentication Failed!");
         }
         userService.updateUser(user);

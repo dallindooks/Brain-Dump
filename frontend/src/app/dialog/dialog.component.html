@@ -224,7 +224,8 @@
           [(ngModel)]="currentUser.email"
         />
       </mat-form-field>
-      <button mat-raised-button color="accent" type="submit">Submit</button>
+      <button (click)="updateUser()" mat-raised-button color="accent" type="submit">Submit</button>
     </form>
   </div>
 </div>
+

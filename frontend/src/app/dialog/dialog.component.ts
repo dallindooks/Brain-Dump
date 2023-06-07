@@ -22,7 +22,7 @@ export class DialogComponent implements OnInit {
   created: boolean = false;
   edited: boolean = false;
   selectedIdea!: Idea;
-  currentUser!: UserData;
+  currentUser: UserData ={} as UserData;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { title: string; formObject: string },

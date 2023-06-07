@@ -5,11 +5,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { BrainStormComponent } from './brain-storm/brain-storm.component';
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'brain-storm', component: BrainStormComponent },
+  { path: 'brain-storm', component: BrainStormComponent, canActivate:[AuthGuard] },
   // Add more routes if needed
   { path: '**', component: NotFoundComponent } // Optional: handle page not found
 ];
